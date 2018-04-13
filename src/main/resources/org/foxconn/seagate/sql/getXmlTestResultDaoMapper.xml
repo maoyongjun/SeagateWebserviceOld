@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="org.foxconn.seagate.dao.GetXmlTestResultDao">
+ 	<select id="getSSNStatusByInput"  parameterType="map" resultType="string" statementType="CALLABLE">
+ 		<![CDATA[
+		     {call getSSNStatusByInput(
+		     #{strPlantCode,mode=IN}, #{strSSN,mode=IN},
+		     #{strField1,mode=IN}, #{strField2,mode=IN},
+		     #{strField3,mode=IN}, #{strLastEditBy,mode=IN},
+		     #{retflag,mode=OUT,jdbcType=VARCHAR}, #{retmsg,mode=OUT,jdbcType=VARCHAR}
+		     )}
+		]]>
+		
+ 	</select>
+ 	<!-- <select id="getPathAndPassWord"  parameterType="string" resultType="string" >
+ 		SELECT CONTROLVALUE FROM ECONTROLVALUE 
+		WHERE CONTROLNAME = #{controlValue}
+ 	</select> -->
+ </mapper>    

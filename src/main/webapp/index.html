@@ -1,0 +1,57 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<br/>
+		<span><a href="./axis2-web" ><h2>showWebservice</h2></a></span>
+		<br/>
+		<span><a href="TestService.html" ><h4>testWebService</h4></a></span>
+		<br/>
+		<h4>example:</h4>
+		<p>
+			<b>
+				<h3>soap1.1:</h3>
+			</b>
+			<br/>
+			<i>
+				1、contextType:text+xml<br/>
+				2、namespace:http://schemas.xmlsoap.org/soap/envelope/<br/>
+			</i>
+		</p>
+<textArea rows="" cols="" style="color: blue;width: 100%;height: 170" >
+	<?xml version="1.0" encoding="utf-8"?>
+	<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	  <soap:Body>
+	    <getSSNStatusByInput xmlns="http://impl.service.seagate.foxconn.org">
+	      <strPlantCode />
+	      <strSSN />
+	    </getSSNStatusByInput>
+	  </soap:Body>
+	</soap:Envelope>
+</textArea>
+		
+		<p>
+			<b>
+				<h3>soap1.2:</h3>
+			</b>
+			<br/>
+			<i>
+				1、contextType:soap+xml<br/>
+				2、namespace:http://www.w3.org/2003/05/soap-envelope<br/>
+				3、soapaction is not necessary
+			</i>
+		</p>
+<textArea rows="" cols="" style="color: blue;width: 100%;height: 170" >
+	<?xml version="1.0" encoding="utf-8"?>
+	<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	  <soap:Body>
+	    <getSSNStatusByInput xmlns="http://impl.service.seagate.foxconn.org">
+	      <strPlantCode />
+	      <strSSN />
+	    </getSSNStatusByInput>
+	  </soap:Body>
+	</soap:Envelope>
+</textArea>
+	</body>
+</html>

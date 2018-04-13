@@ -1,0 +1,29 @@
+<service name="Service1"> 
+	<Description>
+		Please Type your service description here
+	</Description>
+	<messageReceivers>
+		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+		<messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out"  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+	</messageReceivers>
+		<operation name="getSSNStatusByInput" >
+        <messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+     <operation name="updateSSNStatusByInput" >
+        <messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+<!--      <operation name="getSSNStatusByInput1" > -->
+<!--         <messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" /> -->
+<!--     </operation> -->
+<!--     <operation name="updateSSNStatusByInput1" > -->
+<!--         <messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" /> -->
+<!--     </operation> -->
+    <operation name="sayHi" >
+        <messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+   </operation>
+   <operation name="sfcIstpXMLDataDetailEdit" >
+        <messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out" class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+    </operation>
+	<parameter name="ServiceClass" locked="false">org.foxconn.seagate.service.impl.Service1</parameter>
+	
+</service>

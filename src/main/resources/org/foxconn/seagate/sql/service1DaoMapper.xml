@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="org.foxconn.seagate.dao.Service1Dao">
+     <!-- <resultMap type="java.util.HashMap" id="resultMap">
+       <result column="retflag" property="retflag" javaType="java.lang.String" jdbcType="VARCHAR"/>
+       <result column="retmsg" property="retmsg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap> -->
+ 	<!-- <select id="getNextStation"  parameterType="map" statementType="CALLABLE">
+ 		<![CDATA[
+		     {call efoxsfcCheckSSNSTATUSBySSNsel_sp(#{strPlantCode,mode=IN},#{strSSN,mode=IN},#{retflag,mode=OUT,jdbcType=LONGVARCHAR},
+		     #{retmsg,mode=OUT,jdbcType=VARCHAR})}
+		]]>
+		
+ 	</select> -->
+ 	
+ 	<select id="updateSSNStatusByInput"  parameterType="map" statementType="CALLABLE">
+ 		<![CDATA[
+		     {call updateSSNStatusByInput(
+		     #{plantCode,mode=IN,javaType=String,jdbcType=VARCHAR},#{ssn,mode=IN,jdbcType=VARCHAR},
+		     #{fixtureID,mode=IN,jdbcType=VARCHAR},#{testResult,mode=IN,jdbcType=VARCHAR},
+		     #{errorCode,mode=IN,jdbcType=VARCHAR},#{failDetailReason,mode=IN,jdbcType=VARCHAR},
+		     #{testDatatime,mode=IN,jdbcType=VARCHAR},#{empID,mode=IN,jdbcType=VARCHAR},
+		     #{diag,mode=IN,jdbcType=VARCHAR},#{curStation,mode=IN,jdbcType=VARCHAR},
+		     #{lineName,mode=IN,jdbcType=VARCHAR},#{field1,mode=IN,jdbcType=VARCHAR},
+		     #{field2,mode=IN,jdbcType=VARCHAR},#{field3,mode=IN,jdbcType=VARCHAR},
+		     #{actionCode,mode=IN,jdbcType=VARCHAR},#{actionDesc,mode=IN,jdbcType=VARCHAR},
+		     #{replacePN,mode=IN,jdbcType=VARCHAR},#{failCSN,mode=IN,jdbcType=VARCHAR},
+		     #{newCSN,mode=IN,jdbcType=VARCHAR},#{field4,mode=IN,jdbcType=VARCHAR},
+		     #{field5,mode=IN,jdbcType=VARCHAR},#{field6,mode=IN,jdbcType=VARCHAR},
+		     #{retflag,mode=OUT,jdbcType=VARCHAR},#{retmsg,mode=OUT,jdbcType=VARCHAR})}
+		]]>
+		
+ 	</select>
+ 	
+ 	<select id="sfcIstpXMLDataDetailEdit"  parameterType="map" statementType="CALLABLE">
+ 		<![CDATA[
+		     {call SfcIstpXMLDataDetailEdit_sp(
+		     	 #{strTransType,mode=IN},#{strSite,mode=IN},#{strDataType,mode=IN},
+		    	 #{strPART_NUMBER,mode=IN},#{strSERIAL_NUMBER,mode=IN},#{strFEATURE_CODE,mode=IN},
+		    	 #{strMATERIAL_CLASS,mode=IN},#{strCHARACTERISTIC,mode=IN},#{strCOMPONENT_TYPE,mode=IN},
+		    	 #{strWWN,mode=IN},#{strCUST_SERIAL,mode=IN},#{strPARENT_MATNR,mode=IN},
+		    	 #{strPARENT_SERNR,mode=IN},#{strECB_C,mode=IN},#{strEQUIPMENT_NO,mode=IN},
+		    	 #{strMAC_ADDR_C,mode=IN},#{strSERVICE_TAG_C,mode=IN},#{strPOSITION_TYPE,mode=IN},
+		    	 #{strPOSITION_NO,mode=IN},#{strCUST_PART,mode=IN},#{strCUST_ECREV,mode=IN},#{strVENDOR_PART,mode=IN},
+		    	 #{strPOSITION_REQD,mode=IN},#{xmlDetailNode,jdbcType=LONGVARCHAR,mode=OUT},#{retflag,mode=OUT,jdbcType=VARCHAR},#{retmsg,mode=OUT,jdbcType=VARCHAR}
+		     )}
+		]]>
+		
+ 	</select>
+ 	
+ 	
+ </mapper>    

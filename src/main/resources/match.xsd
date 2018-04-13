@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:simpleType name="operation">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([A-Z0-9][A-Z0-9 ]{5}[A-Z0-9]{2})|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="partnumber">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(\d+-\d\d)|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="wwn">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([A-F0-9]{16})|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="macaddress">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([A-F0-9]{12})|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="STR_DATA">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="INPUT_MATERIAL" type="partnumber" />
+				<xsd:element name="INPUT_SERIAL" type="xsd:string" />
+				<xsd:element name="PLANT_CODE" type="xsd:string" />
+				<xsd:element name="OPERATION" type="operation" />
+				<xsd:element name="ORDER" type="xsd:string" />
+				<xsd:element name="PART_NUMBER" type="partnumber" />
+				<xsd:element name="SERIAL_NUMBER" type="xsd:string" />
+				<xsd:element name="FEATURE_CODE" type="xsd:string" />
+				<xsd:element name="MATERIAL_CLASS" type="xsd:string" />
+				<xsd:element name="CHARACTERISTIC" type="xsd:string" />
+				<xsd:element name="COMPONENT_TYPE" type="xsd:string" />
+				<xsd:element name="WWN" type="wwn" />
+				<xsd:element name="CUST_SERIAL" type="xsd:string" />
+				<xsd:element name="ECB" type="partnumber" />
+				<xsd:element name="EQUIPMENT_NO" type="xsd:string" />
+				<xsd:element name="MAC_ADDR" type="macaddress" />
+				<xsd:element name="SERVICE_TAG" type="xsd:string" />
+				<xsd:element name="CUST_PART" type="xsd:string" />
+				<xsd:element name="CUST_ECREV" type="xsd:string" />
+				<xsd:element name="SYSTEM_SERIAL" type="xsd:string" />
+				<xsd:element name="ERROR_MESSAGE" type="xsd:string" />
+				<xsd:element name="VENDOR_PART" type="xsd:string" />
+				<xsd:element name="POSITION_REQD" type="xsd:string" />
+				<xsd:element name="DETAIL">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ZPE_ISTPCOMP" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ZINDEX">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:pattern value="\d\d\d\d" />
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="BM_LEVEL" type="xsd:nonNegativeInteger" />
+										<xsd:element name="PART_NUMBER" type="partnumber" />
+										<xsd:element name="SERIAL_NUMBER" type="xsd:string" />
+										<xsd:element name="FEATURE_CODE" type="xsd:string" />
+										<xsd:element name="MATERIAL_CLASS" type="xsd:string" />
+										<xsd:element name="CHARACTERISTIC" type="xsd:string" />
+										<xsd:element name="COMPONENT_TYPE" type="xsd:string" />
+										<xsd:element name="WWN" type="wwn" />
+										<xsd:element name="CUST_SERIAL" type="xsd:string" />
+										<xsd:element name="PARENT_MATNR" type="partnumber" />
+										<xsd:element name="PARENT_SERNR" type="xsd:string" />
+										<xsd:element name="ECB_C" type="partnumber" />
+										<xsd:element name="EQUIPMENT_NO" type="xsd:string" />
+										<xsd:element name="MAC_ADDR_C" type="macaddress" />
+										<xsd:element name="SERVICE_TAG_C" type="xsd:string" />
+										<xsd:element name="POSITION_TYPE" type="xsd:string" />
+										<xsd:element name="POSITION_NO" type="xsd:string" />
+										<xsd:element name="CUST_PART" type="xsd:string" />
+										<xsd:element name="CUST_ECREV" type="xsd:string" />
+										<xsd:element name="VENDOR_PART" type="xsd:string" />
+										<xsd:element name="POSITION_REQD" type="xsd:string" />
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+					<xsd:unique name="unique-zindex">
+						<xsd:selector xpath="ZPE_ISTPCOMP" />
+						<xsd:field xpath="ZINDEX" />
+					</xsd:unique>
+					<xsd:unique name="unique-serial-part">
+						<xsd:selector xpath="ZPE_ISTPCOMP" />
+						<xsd:field xpath="PART_NUMBER" />
+						<xsd:field xpath="SERIAL_NUMBER" />
+					</xsd:unique>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
